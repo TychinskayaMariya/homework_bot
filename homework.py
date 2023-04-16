@@ -33,9 +33,7 @@ logger = logging.getLogger(__name__)
 
 
 def check_tokens() -> bool:
-    """Проверяет доступность переменных окружения, которые
-    необходимы для работы программы.
-    """
+    """Проверяет доступность переменных окружения."""
     list_env = [
         PRACTICUM_TOKEN,
         TELEGRAM_TOKEN,
@@ -84,9 +82,7 @@ def check_response(response: dict) -> list:
 
 
 def parse_status(homework: dict) -> str:
-    """Извлекает из информации о конкретной домашней работе
-    статус этой работы.
-    """
+    """Извлекает статус домашней работы."""
     error_text = 'Недокументированный статус проверки или отсуствие ключа'
     if 'homework_name' not in homework or 'status' not in homework:
         raise KeyError(error_text)
