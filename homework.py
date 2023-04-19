@@ -113,12 +113,12 @@ def main():
     while True:
         try:
             response = get_api_answer(timestamp)
-            homework = check_response(response)
-            if not homework:
+            homeworks = check_response(response)
+            if not homeworks:
                 message = 'Ответ API пуст: нет домашних работ.'
                 logger.debug(message)
             else:
-                message = parse_status(homework[0])
+                message = parse_status(homeworks[0])
             if old_message != message:
                 old_message = message
                 send_message(bot, message)
